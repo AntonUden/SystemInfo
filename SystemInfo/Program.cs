@@ -15,7 +15,7 @@ namespace SystemInfo
         {
             Console.WriteLine("OS: " + Environment.OSVersion);
             Console.WriteLine("64 bit: " + Environment.Is64BitOperatingSystem);
-            Console.WriteLine("Processor count: " + Environment.ProcessorCount);
+            Console.WriteLine("Processor count (Cores): " + Environment.ProcessorCount);
 
             Console.WriteLine("Machine name: " + Environment.MachineName);
             Console.WriteLine("Computer name: " + SystemInformation.ComputerName);
@@ -34,9 +34,11 @@ namespace SystemInfo
             Console.WriteLine("--------- Monitors ---------");
             foreach (var screen in Screen.AllScreens)
             {
+                decimal mpixel = (decimal)(screen.Bounds.Width * screen.Bounds.Height) / 1000000;
                 Console.WriteLine("Is primary Screen: " + screen.Primary);
                 Console.WriteLine("Device Name: " + screen.DeviceName);
-                Console.WriteLine("Size: " + screen.Bounds.Width + "x" + screen.Bounds.Height);
+                Console.WriteLine("Resolution: " + screen.Bounds.Width + "x" + screen.Bounds.Height + " " + mpixel + " Megapixels");
+                Console.WriteLine("Bits per pixel: " + screen.BitsPerPixel);
                 Console.WriteLine("----------------------------");
             }
 

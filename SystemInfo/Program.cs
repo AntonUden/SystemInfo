@@ -30,6 +30,15 @@ namespace SystemInfo
             Console.WriteLine("Working area:  Width: " + SystemInformation.WorkingArea.Width + " Height: " + SystemInformation.WorkingArea.Height);
             Console.WriteLine("Monitor count: " + SystemInformation.MonitorCount);
             Console.WriteLine("Primary monitor size: " + SystemInformation.PrimaryMonitorSize.Width + "x" + SystemInformation.PrimaryMonitorSize.Height);
+            Console.WriteLine();
+            Console.WriteLine("--------- Monitors ---------");
+            foreach (var screen in Screen.AllScreens)
+            {
+                Console.WriteLine("Is primary Screen: " + screen.Primary);
+                Console.WriteLine("Device Name: " + screen.DeviceName);
+                Console.WriteLine("Size: " + screen.Bounds.Width + "x" + screen.Bounds.Height);
+                Console.WriteLine("----------------------------");
+            }
 
             Console.ReadKey();
         }

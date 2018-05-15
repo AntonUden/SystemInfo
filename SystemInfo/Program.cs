@@ -15,6 +15,11 @@ namespace SystemInfo
         {
             Console.WriteLine("OS: " + Environment.OSVersion);
             Console.WriteLine("64 bit: " + Environment.Is64BitOperatingSystem);
+            ManagementObjectSearcher mos = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_Processor");
+            foreach (ManagementObject mo in mos.Get())
+            {
+                Console.WriteLine("Procesor: " + mo["Name"]);
+            }
             Console.WriteLine("Processor count (Cores): " + Environment.ProcessorCount);
 
             Console.WriteLine("Machine name: " + Environment.MachineName);
